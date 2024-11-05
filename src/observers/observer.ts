@@ -1,6 +1,19 @@
+
+type dispositivos = {
+  'id': "number",
+  'local': 'string',
+  'status': 'string',
+  'alert': 'boolean',
+  'controle': 'string',
+  'energia': 'number',
+  'date': 'string'
+}
+
+
+
 // observer.ts
 export interface Observer {
-    update(data: any): void;
+    update(data: dispositivos): void;
   }
   
   export class Subject {
@@ -14,7 +27,7 @@ export interface Observer {
       this.observers = this.observers.filter(obs => obs !== observer);
     }
   
-    notify(data: any) {
+    notify(data: dispositivos) {
       this.observers.forEach(observer => observer.update(data));
     }
   }
